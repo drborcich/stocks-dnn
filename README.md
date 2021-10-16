@@ -15,4 +15,4 @@ Initiated October 2021
   (4) implied volatiliy for the ~30-day forward period, as described by the
   VIX
 
-(*) Price(t1) - Price(t0) / Price(t0) (*) 
+*Return Price(t1) - Price(t0) / Price(t0) 
