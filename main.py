@@ -1,6 +1,7 @@
 
 import numpy as np
 import pandas as pd
+import matplotlib.pyplot as plt
 #import torch
 
 ROWS = 3510 # 17 years * 252 trading days (3528)
@@ -9,8 +10,6 @@ ROWS = 3510 # 17 years * 252 trading days (3528)
 Autoregression model - on volatility
 
 Calculating autocorrelation of previous 30 day, 5 day volatility 
-
-
 '''
 
 def variance(array,mean):
@@ -50,7 +49,6 @@ def period_vol(array, period):
     #return(np.corrcoef(backshift_std_arr,array))
 
 
-
 def main():
 
     file = 'SPY.csv'  
@@ -61,6 +59,7 @@ def main():
     arr_alpha = []
     arr_beta = []
     arr_gamma = []
+    active_ticks = []
     while i < (ROWS - 10) and stop == False:
 
         j = i + 1
@@ -74,6 +73,7 @@ def main():
         diff_gamma = round((df.iloc[m,4] - df.iloc[i,4])/df.iloc[i,4],3)   #close - close % chg
 
         arr_alpha.append(diff_alpha)
+        active_ticks.append(i)
         arr_beta.append(diff_beta)
         arr_gamma.append(diff_gamma)
         
@@ -105,6 +105,11 @@ def main():
     ac_2 = series_gamma.autocorr(2)
     print(ac)
     print(ac_2)
+    
+    series_active = series_beta[:50]
+    active_ticks = active_ticks[:50]
+    plot = plt.scatter(active_ticks, series_active)
+    plt.show()
 
     '''
     mean_alpha = mean(arr_alpha)
