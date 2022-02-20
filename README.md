@@ -1,5 +1,5 @@
-# stocks-dnn
-A financial asset price prediction program using deep learning
+# stocks-lr
+A financial asset price prediction program using linear regression
 
 Author: Declan R Borcich
 Initiated October 2021
