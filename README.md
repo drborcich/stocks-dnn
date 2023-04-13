@@ -1,5 +1,5 @@
 # stocks-lr
-A financial asset price prediction program using linear regression
+A script for measuring metrics on SPY data.
 
 Author: Declan R Borcich
 Initiated October 2021
